@@ -48,9 +48,9 @@ class Vocab:
     def __getitem__(self,token):
         return self.token2idx[token]
 
-def load_corpus_text(max_tokens=-1):
-    text = read_text()
-    tokens = tokenize(text,mode='word')
+def load_corpus_text(max_tokens=-1,mode='wprd',fn = 'wizard_of_os.txt'):
+    text = read_text( fn = fn)
+    tokens = tokenize(text,mode=mode)
     vocab = Vocab(tokens)
     corpus = [vocab[token] for token in tokens]
     if max_tokens > 0:
